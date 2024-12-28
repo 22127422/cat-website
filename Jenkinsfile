@@ -6,19 +6,18 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/22127422/cat-website.git'
             }
         }
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Building...'
+                script {
+                    docker.build('22127422/cat-website:v1.0')
+                }
             }
         }
-        stage('Test') {
+        stage('Run Docker Container') {
             steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
+                script {
+                    docker.image('22127422/cat-website:v1.0').run('-p 3000:80')
+                }
             }
         }
     }
