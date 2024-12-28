@@ -1,0 +1,14 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00FF00;
+}
+
+.spinning-cat {
+  width: 256px;
+  height: 256px;
+  object-fit: cover;
+}
+
